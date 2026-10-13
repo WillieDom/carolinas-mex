@@ -5,14 +5,14 @@ const slides = [
   {
     id: 0,
     title: "Main Hero",
-    bg: "/Images/quesaBirria.png",
+    bgClass: "/Images/quesaBirria.png",
     CTA: "Experience the flavors of traditional Mexican cooking with fresh ingredients and authentic recipes. We are a seed oil free kitchen.",
     button: "Order now",
   },
   {
     id: 1,
     title: "Desert Hero",
-    bg: "/Images/desertHero.svg",
+    bgClass: "/Images/desertHero.svg",
     CTA: "A Sweet Ending Starts Here",
     description:
       "Homemade flan and key lime pie that hit the sweet spot every time.",
@@ -22,7 +22,7 @@ const slides = [
     id: 2,
     title: "Papa's Coffecitos",
     popsLogo: "/Images/papa'sLogo.png",
-    bg: "/Images/Papas-HeroBG.svg",
+    bgClass: "/Images/Papas-HeroBG.svg",
     CTA: "A Classic Flavor With A Coffee Twist",
     description: "Homemade paired with bold espresso in every cup.",
     button: "Cafecito Menu",
@@ -32,6 +32,7 @@ const slides = [
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(null);
+  // const [isHovered, setIsHovered] = useState(false);
   const [animate, setAnimate] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -62,9 +63,9 @@ export default function HeroSlider() {
     <>
       <section
         id="heroSlideContainer"
-        className=" w-full max-w-full h-auto overflow-hidden flex flex-col items-center justify-center bg-accent-red relative border box-content "
+        className=" w-screen h-full overflow-hidden flex flex-col items-center justify-center bg-accent-red relative "
       >
-        <divs
+        <div
           key={current}
           className={`slide-track w-full h-full ${
             animate
@@ -83,37 +84,33 @@ export default function HeroSlider() {
             id="slideContent"
             style={{
               backgroundImage: `
-              url(${slides[current].bg})`,
+              url(${slides[current].bgClass})`,
             }}
-            className="w-full h-full bg-no-repeat flex flex-col gap-20 justify-center items-center text-1xl bg-cover bg-center relative"
+            className="w-screen h-100 bg-no-repeat flex flex-col  justify-center items-center text-1xl bg-cover bg-center  relative"
           >
             {/* Title on the hero */}
             <h1
               id="heroTitle"
-              className="w-full h-20 flex justify-center items-center font-agbalumo text-4xl md:text-5xl  text-white [-webkit-text-stroke:2px_black] "
+              className="w-screen h-20 flex justify-center items-center font-agbalumo text-4xl md:text-5xl  text-white [-webkit-text-stroke:2px_black] "
             >
               {slides[current].title}
 
-              {slides[current].popsLogo && (
+              {/* {slides[current].popsLogo && (
                 <img
                   src={slides[current].popsLogo}
                   alt="Papa's Coffecitos Logo"
                   className="w-20 h-40 object-cover pt-5 "
                 />
-              )}
+              )} */}
             </h1>
             {/* Call to Action */}
             <div id="CTA" className=" w-full h-auto flex-row ">
               <p className="text-black text-1xl font-bold font-agbalumo text-center bg-amber-300/80 ">
                 {slides[current].CTA}
               </p>
-              {/* <p className="text-black text-2xl font-bold font-agbalumo text-center bg-amber-300/80 ">
-                {slides[current].description}
-              </p> */}
-              {/* Nav arrows */}
             </div>
           </div>
-        </divs>
+        </div>
         {/* Hero Nav Arrows */}
         <div className="nav-arrows w-full h-full flex items-center justify-between z-40 p-5 bottom-1 absolute">
           <button
@@ -125,22 +122,7 @@ export default function HeroSlider() {
           </button>
 
           <button className="nav-btn" onClick={next} aria-label="Next slide">
-            {/* <img
-              className="w-10 h-10 lg:w-15 lg:h-15 "
-              src="/Images/rightArrow.svg"
-              alt="Right Arrow"
-            /> */}
-
             <RightArrow />
-            {/* <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path
-                d="M7 4l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg> */}
           </button>
         </div>
       </section>
