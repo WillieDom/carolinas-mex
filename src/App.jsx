@@ -8,13 +8,13 @@ import About from "./pages/About.jsx";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/carolinas-mex">
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />  {/* moved to last */}
+        <Route path="*" element={<NotFound />} /> {/* moved to last */}
       </Routes>
     </Router>
   );
