@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import HeroSlides from "../components/HeroSlides.jsx";
 // Hours and Location
 import HoursAndLocation from "../components/HoursAndLocation.jsx";
-import Footer from "../components/Footer.jsx";
 
 export default function Home() {
   const favoritesSection = [
@@ -41,7 +40,7 @@ export default function Home() {
       </section>
 
       <HoursAndLocation />
-      <Footer />
+    
 
       {/* <section id="aboutRestaurant">
         From our familia to yours. My family immigrated from Michoacán, Mexico,

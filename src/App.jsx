@@ -17,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />  {/* moved to last */}
       </Routes>
+      <Footer />
     </Router>
   );
 }
