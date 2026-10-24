@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav.jsx";
 import Home from "./pages/Home.jsx";
 import MenuPage from "./pages/MenuPage.jsx";
@@ -9,7 +9,7 @@ import About from "./pages/About.jsx";
 
 function App() {
   return (
-    <Router basename="/carolinas-mex">
+    <Router>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
